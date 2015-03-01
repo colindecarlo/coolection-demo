@@ -1,0 +1,22 @@
+{
+    "name": "colin/coolection-demo",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Colin DeCarlo",
+            "email": "colin@thedecarlos.ca"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/colindecarlo/coolection"
+        }
+    ],
+    "require": {
+        "illuminate/support": "~4.2",
+        "colindecarlo/jank-profiler": "~0.1",
+        "colindecarlo/coolection": "dev-master"
+    },
+    "minimum-stability": "dev"
+}
