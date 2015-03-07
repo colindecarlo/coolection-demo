@@ -1,5 +1,5 @@
 {
-    "name": "colin/coolection-demo",
+    "name": "colin/speed-bag-demo",
     "license": "MIT",
     "authors": [
         {
@@ -10,13 +10,13 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/colindecarlo/coolection"
+            "url": "https://github.com/colindecarlo/speed-bag"
         }
     ],
     "require": {
         "illuminate/support": "~4.2",
         "colindecarlo/jank-profiler": "~0.1",
-        "colindecarlo/coolection": "dev-master"
+        "colindecarlo/speed-bag": "dev-master"
     },
     "minimum-stability": "dev"
 }
