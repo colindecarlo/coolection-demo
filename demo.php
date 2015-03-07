@@ -33,6 +33,15 @@ $speedBag->filter($usStates);
 $collection->filter($usStates);
 report('filter', $speedBag, $collection);
 
+$isMeiveldForSpeedBag = function ($elem) {
+    return $elem->geonameId == 3577166;
+};
+$isMeiveldForCollection = function ($key, $elem) {
+    return $elem->geonameId == 3577166;
+};
+$speedBag->contains($isMeiveldForSpeedBag);
+$collection->contains($isMeiveldForCollection);
+report('contains', $speedBag, $collection);
 
 $regionsByCountry = json_decode(file_get_contents('./fixtures/admin_regions_by_country.json'));
 $collection = new JankProfiler('Illuminate\\Support\\Collection', $regionsByCountry);
