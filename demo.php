@@ -43,6 +43,18 @@ $speedBag->contains($isMeiveldForSpeedBag);
 $collection->contains($isMeiveldForCollection);
 report('contains', $speedBag, $collection);
 
+$collection->first($isMeiveldForCollection);
+$speedBag->first($isMeiveldForSpeedBag);
+report('first', $speedBag, $collection);
+
+$collection->last();
+$speedBag->last();
+report('last', $speedBag, $collection);
+
+$speedBag->reverse();
+$collection->reverse();
+report('reverse', $speedBag, $collection);
+
 $regionsByCountry = json_decode(file_get_contents('./fixtures/admin_regions_by_country.json'));
 $collection = new JankProfiler('Illuminate\\Support\\Collection', $regionsByCountry);
 $speedBag = new JankProfiler('SpeedBag\\SpeedBag', $regionsByCountry);
