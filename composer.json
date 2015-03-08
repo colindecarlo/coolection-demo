@@ -16,7 +16,7 @@
     "require": {
         "illuminate/support": "~4.2",
         "colindecarlo/jank-profiler": "~0.1",
-        "colindecarlo/speed-bag": "dev-master"
+        "colindecarlo/speed-bag": "dev-faster-reverse"
     },
     "minimum-stability": "dev"
 }
