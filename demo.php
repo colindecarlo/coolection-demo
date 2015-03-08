@@ -3,6 +3,8 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 use JankProfiler\JankProfiler;
+use Illuminate\Support\Collection;
+use SpeedBag\SpeedBag;
 
 $regions = json_decode(file_get_contents('./fixtures/admin_regions.json'));
 $cloneArrayContents = function($arr) {
@@ -10,8 +12,8 @@ $cloneArrayContents = function($arr) {
         return clone $elem;
     }, $arr);
 };
-$collection = new JankProfiler('Illuminate\\Support\\Collection', $cloneArrayContents($regions));
-$speedBag = new JankProfiler('SpeedBag\\SpeedBag', $cloneArrayContents($regions));
+$collection = new JankProfiler(Collection::class, $cloneArrayContents($regions));
+$speedBag = new JankProfiler(SpeedBag::class, $cloneArrayContents($regions));
 
 report('construct', $speedBag, $collection);
 
@@ -56,8 +58,8 @@ $collection->reverse();
 report('reverse', $speedBag, $collection);
 
 $regionsByCountry = json_decode(file_get_contents('./fixtures/admin_regions_by_country.json'));
-$collection = new JankProfiler('Illuminate\\Support\\Collection', $regionsByCountry);
-$speedBag = new JankProfiler('SpeedBag\\SpeedBag', $regionsByCountry);
+$collection = new JankProfiler(Collection::class, $regionsByCountry);
+$speedBag = new JankProfiler(SpeedBag::class, $regionsByCountry);
 
 $collection->flatten();
 $speedBag->flatten();
