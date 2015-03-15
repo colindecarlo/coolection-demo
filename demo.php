@@ -55,9 +55,16 @@ $speedBag->reverse();
 $collection->reverse();
 report('reverse', $speedBag, $collection);
 
-$regionsByCountry = json_decode(file_get_contents('./fixtures/admin_regions_by_country.json'));
-$collection = new JankProfiler('Illuminate\\Support\\Collection', $regionsByCountry);
-$speedBag = new JankProfiler('SpeedBag\\SpeedBag', $regionsByCountry);
+//$regionsByCountry = json_decode(file_get_contents('./fixtures/admin_regions_by_country.json'));
+//$collection = new JankProfiler('Illuminate\\Support\\Collection', $regionsByCountry);
+//$speedBag = new JankProfiler('SpeedBag\\SpeedBag', $regionsByCountry);
+
+$groupByCountryId = function ($elem) {
+    return property_exists($elem, 'countryId' ) ? $elem->countryId : -1;
+};
+$groupedSpeedBag = $speedBag->groupBy($groupByCountryId);
+$groupedCollection = $collection->groupBy($groupByCountryId);
+report('groupBy', $speedBag, $collection);
 
 $collection->flatten();
 $speedBag->flatten();
